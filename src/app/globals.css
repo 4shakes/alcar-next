@@ -2,32 +2,174 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: 155 36% 100%;
+    --foreground: 155 71% 1%;
+    --muted: 155 5% 95%;
+    --muted-foreground: 155 8% 33%;
+    --popover: 155 36% 100%;
+    --popover-foreground: 155 71% 1%;
+    --card: 155 36% 100%;
+    --card-foreground: 155 71% 1%;
+    --border: 155 13% 90%;
+    --input: 155 13% 90%;
+    --primary: 155 58% 29%; 
+    --primary-foreground: 0 0% 100%;
+    --secondary: 155 14% 80%;
+    --secondary-foreground: 155 14% 20%;
+    --accent: 155 23% 71%;
+    --accent-foreground: 155 23% 11%;
+    --destructive: 8 87% 43%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 155 58% 29%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 155 30% 0%;
+    --foreground: 155 29% 98%;
+    --muted: 155 5% 5%;
+    --muted-foreground: 155 8% 67%;
+    --popover: 155 30% 0%;
+    --popover-foreground: 155 29% 98%;
+    --card: 155 30% 0%;
+    --card-foreground: 155 29% 98%;
+    --border: 155 13% 15%;
+    --input: 155 13% 15%;
+    --primary: 155 58% 29%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 155 10% 18%;
+    --secondary-foreground: 155 10% 78%;
+    --accent: 155 19% 25%;
+    --accent-foreground: 155 19% 85%;
+    --destructive: 8 87% 49%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 155 58% 29%;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
+
+.swiper-button-prev {
+  padding-left: 0px;
+}
+
+.swiper-button-next {
+  padding-right: 0px;
+}
+
+@media (min-width: 768px) {
+  .swiper-button-prev {
+    padding-left: 20px;
+  }
+
+  .swiper-button-next {
+    padding-right: 20px;
+  }
+
+  .loop-swiper {
+    animation: upAndDown 25s infinite;
+  }
+}
+
+@media (min-width: 1200px) {
+  .swiper-button-prev {
+    padding-left: 40px;
+  }
+
+  .swiper-button-next {
+    padding-right: 40px;
+  }
+}
+
+
+@keyframes upAndDown {
+  0% {
+    background-position: center 50%;
+  }
+
+  50% {
+    background-position: center 10%;
+  }
+
+  100% {
+    background-position: bottom 10%;
+  }
+}
+
+.banner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.banner:before {
+  content: '';
+  background-color: rgba(10, 10, 10, 0.6);
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+}
+
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+.animate-bounce {
+  animation-name: bounce;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+
+.image-block-hack>span {
+  display: block !important;
+}
+
+.image-h-full-hack>span {
+  height: 100% !important;
+}
+
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #ff0000;
+  /* Cambia el color de las flechas */
+  font-size: 24px;
+  /* Cambia el tamaño de las flechas */
+}
+
+.typography-h1 {
+  @apply my-4 text-4xl tracking-tight font-extrabold text-gray-800 dark:text-gray-200;
+}
+
+.typography-h2 {
+  @apply my-4 text-2xl md:text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-800 dark:text-gray-200;
+}
+
+.typography-h3 {
+  @apply my-4 text-lg md:text-xl lg:text-2xl tracking-tight font-extrabold text-gray-800 dark:text-gray-200;
+}
+
+
