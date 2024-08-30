@@ -122,7 +122,7 @@ const NavBar = () => {
                       { href: '/servicios/impresion-digital', text: 'Impresión Digital', onClick: () => setToggle(false) },
                       { href: '/servicios/venta-de-foil', text: 'Venta de Foil', onClick: () => setToggle(false) },
                       { href: '/servicios/elaboracion-de-clise', text: 'Elaboración de Clise', onClick: () => setToggle(false) },
-                      { href: '/servicios/venta-de-foil', text: 'Acabados Gráficos', onClick: () => setToggle(false) },
+                      { href: '/servicios/acabados-graficos', text: 'Acabados Gráficos', onClick: () => setToggle(false) },
                     ]}
                   />
 
