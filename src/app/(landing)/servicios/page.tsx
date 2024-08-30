@@ -1,10 +1,9 @@
 import { Breadcrumb } from "@/components/ui/breadcrumb /breadcrumb";
 import Button from "@/components/ui/buttons/Button";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import React from "react";
 
-export const servicios = [
+const services = [
   {
     title: "Impresión Offset",
     subTitle:
@@ -84,7 +83,7 @@ export default function ServicePage() {
           Servicios
         </h1>
         <div className="pt-10 ">
-          {servicios.map((item, index) => (
+          {services.map((item, index) => (
             <div
               key={item.img}
               className={`flex flex-auto flex-col py-7 md:py-0 md:flex-row gap-8 md:gap-0 ${index % 2 === 1 ? "md:flex-row-reverse" : ""
